@@ -44,5 +44,26 @@ secure authentication and role-based access control.
 | Database       | MongoDB                                  |
 | Media Storage  | Cloudinary                               |
 
+------------------------------------------------------------------------
 
+## 🔐 Authentication Flow
 
+1.  Users register and log in.\
+2.  JWT token is generated.\
+3.  Middleware validates the token.\
+4.  Role-based access ensures secure route access.
+
+------------------------------------------------------------------------
+
+## 📸 Image Generation Flow
+
+1.  User submits an image prompt.\
+2.  Request is sent to the ClipDrop API.\
+3.  Generated image is stored on Cloudinary.\
+4.  Image URL is saved in the database.
+
+------------------------------------------------------------------------
+
+## 👨‍💻 Author
+
+Utsav Patel
