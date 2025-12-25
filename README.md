@@ -5,8 +5,7 @@ A full-stack AI-powered image creation platform that allows users to generate, m
 🚀 Features
 
 🤖 AI Image Generation
-
-Integrated with ClipDrop API for high-quality AI image creation.
+-> Integrated with ClipDrop API for high-quality AI image creation.
 
 🔐 Token-Based Authentication
 Secure login system using JWT.
