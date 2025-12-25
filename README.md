@@ -35,13 +35,14 @@ secure authentication and role-based access control.
 
 ## 🛠 Tech Stack
 
-  Layer            Technology
-  ---------------- -----------------------
-  Frontend         HTML, CSS, JavaScript
-  Backend          Node.js, Express.js
-  Authentication   JWT
-  AI API           ClipDrop API
-  Database         MongoDB
-  Media Storage    Cloudinary
+| Layer          | Technology                               |
+| -------------- | ---------------------------------------- |
+| Frontend       | HTML, CSS, JavaScript (or React if used) |
+| Backend        | Node.js, Express.js                      |
+| Authentication | JWT (JSON Web Tokens)                    |
+| AI API         | ClipDrop API                             |
+| Database       | MongoDB                                  |
+| Media Storage  | Cloudinary                               |
+
 
 
