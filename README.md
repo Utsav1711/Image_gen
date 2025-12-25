@@ -4,6 +4,8 @@ A full-stack AI-powered image creation platform that allows users to
 generate, manage, and store images using the **ClipDrop API**, with
 secure authentication and role-based access control.
 
+------------------------------------------------------------------------
+
 ## 🚀 Features
 
 ### 🤖 AI Image Generation
@@ -41,4 +43,5 @@ secure authentication and role-based access control.
   AI API           ClipDrop API
   Database         MongoDB
   Media Storage    Cloudinary
+
 
