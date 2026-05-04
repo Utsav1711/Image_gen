@@ -5,70 +5,90 @@ import { AppContext } from '../context/AppContext'
 import { useNavigate } from 'react-router-dom'
 
 const Header = () => {
-
-    const {user,setShowLogin} = useContext(AppContext)
+    const {user, setShowLogin} = useContext(AppContext)
     const navigate = useNavigate()
 
-    const onClickHandaler = ()=>{
+    const onClickHandler = () => {
         if(user){
             navigate('/result')
         }else{
             setShowLogin(true)
         }
     }
-    return (
 
-        <motion.div className='flex flex-col justify-center items-center text-center my-20'
+    return (
+        <motion.div 
+            className='flex flex-col justify-center items-center text-center my-16 px-4'
             initial={{ opacity: 0.2, y: 200 }}
             transition={{ duration: 1 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
         >
-            <motion.div className='text-stone-500 inline-flex items-center gap-2 bg-white px-6 py-1 rounded-full border border-neutral-500'
+            {/* Badge */}
+            <motion.div 
+                className='inline-flex items-center gap-2 bg-gradient-to-r from-orange-50 to-teal-50 px-5 py-2 rounded-full border-2 border-orange-200 shadow-sm'
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
-                viewport={{ once: true }}
             >
-                <p>Best text to image Generator </p>
+                <p className='text-orange-600 font-semibold text-sm'>Best AI Image Generator</p>
                 <img src={assets.star_icon} alt="" className="w-4 h-4" />
             </motion.div>
 
-            <motion.h1 className='text-4xl max-w-[300px] sm:text-7xl sm:max-w-[590px] mx-auto mt-10 text-center'
+            {/* Main Heading */}
+            <motion.h1 
+                className='text-5xl max-w-[350px] sm:text-7xl sm:max-w-[700px] mx-auto mt-8 font-bold bg-gradient-to-r from-orange-500 via-teal-500 to-orange-500 bg-clip-text text-transparent leading-tight'
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 2, delay: 0.4 }}
+            >
+                Transform Text into <span className='block mt-2'>Stunning Images</span>
+            </motion.h1>
 
-            >Turn text to <span className='text-blue-600'>image</span>, in seconds.</motion.h1>
-
-            <motion.p className='text-center max-w-xl mx-auto mt-5'
+            {/* Subtitle */}
+            <motion.p 
+                className='text-center max-w-2xl mx-auto mt-5 text-base text-gray-600 leading-relaxed'
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
-            >Unleash your creativity with AI. Turn your imagination into visual art in seconds - just type, and watch the magic happen.</motion.p>
+            >
+                Unleash your creativity with AI-powered image generation. 
+                Choose your perfect aspect ratio and watch your ideas come to life instantly.
+            </motion.p>
 
+            {/* CTA Button */}
             <motion.button 
-                onClick={onClickHandaler}
-                className='sm:text-lg text-white bg-black w-auto mt-8 px-12 flex items-center gap-2 rounded-full h-10 '
-                whileHover={{ scale: 1.05 }}
+                onClick={onClickHandler}
+                className='mt-8 px-8 py-3.5 bg-gradient-to-r from-orange-400 to-teal-400 text-white text-base font-semibold rounded-xl shadow-md hover:shadow-lg flex items-center gap-2 group'
+                whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ default: { duration: 0.5 }, opacity: { delay: 0.8, duration: 1 } }}
             >
-                Generate Images
-                <img className='h-8' src={assets.star_group} alt="" />
+                <span>Start Creating Now</span>
+                <img className='h-5 group-hover:rotate-12 transition-transform' src={assets.star_group} alt="" />
             </motion.button>
 
-            <motion.div className='flex flex-wrap justify-center mt-16 gap-3'
+            {/* Sample Images Gallery */}
+            <motion.div 
+                className='flex flex-wrap justify-center mt-14 gap-3'
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 1 }}
             >
                 {Array(6).fill('').map((item, index) => (
-                    <motion.img
-                        whileHover={{ scale: 1.05, duration: 0.1 }}
-                        className='rounded hover:scale-105 transition-all duration-300 cursor-pointer max-sm:w-10' src={index % 2 === 0 ? assets.sample_img_2 : assets.sample_img_1} alt="" key={index} width={70}></motion.img>
+                    <motion.div
+                        key={index}
+                        whileHover={{ scale: 1.08, rotate: 1 }}
+                        className='rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer border-2 border-orange-100'
+                    >
+                        <img
+                            className='w-16 h-16 sm:w-20 sm:h-20 object-cover' 
+                            src={index % 2 === 0 ? assets.sample_img_2 : assets.sample_img_1} 
+                            alt={`Sample ${index + 1}`}
+                        />
+                    </motion.div>
                 ))}
             </motion.div>
 
@@ -76,9 +96,11 @@ const Header = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 1.2 }}
-                className='mt-2 text-neutral-600'>Generated images from imagify </motion.p>
+                className='mt-3 text-gray-500 text-sm font-medium'
+            >
+                ✨ Generated by Imagify AI
+            </motion.p>
         </motion.div>
-
     )
 }
 

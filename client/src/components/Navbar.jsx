@@ -21,25 +21,25 @@ const Navbar = () => {
             user
             ? 
             <div className='flex items-center gap-2 sm:gap-3'>
-                <button onClick={()=>navigate('/buy')} className='flex items-center gap-2 bg-blue-100 px-4 sm:px-6 py-1.5 sm:py-3 rounded-full hover:scale-105 transition-all duration-700 '>
+                <button onClick={()=>navigate('/buy')} className='flex items-center gap-2 bg-gradient-to-r from-orange-100 to-teal-100 px-4 sm:px-6 py-1.5 sm:py-2.5 rounded-full hover:scale-105 transition-all duration-300 border border-orange-200'>
                     <img src={assets.credit_star} className='w-5' alt="" />
-                    <p className='text-xs sm:text-sm font-medium text-gray-600'>Credits Left : {credit}</p>
+                    <p className='text-xs sm:text-sm font-medium text-gray-700'>Credits: {credit}</p>
                 </button>
 
-                <p className='text-gray-600 max-sm:hidden pl-4'>Hi , {user.name}</p>
+                <p className='text-gray-600 max-sm:hidden pl-4 text-sm'>Hi, {user.name}</p>
                 <div className='relative group'>
-                    <img src={assets.profile_icon} className='w-10 drop-shadow'  alt="" />
-                    <div className='absolute hidden group-hover:block top-0 right-0 z-0 text-black rounded pt-12'>
-                        <ul className='list-none m-0 p-2 bg-white rounded-md border text-sm '>
-                            <li onClick={logout} className='py-1 px-2 cursor-pointer pr-10'>Logout</li>
+                    <img src={assets.profile_icon} className='w-10 drop-shadow cursor-pointer'  alt="" />
+                    <div className='absolute hidden group-hover:block top-0 right-0 z-10 text-black rounded pt-12'>
+                        <ul className='list-none m-0 p-2 bg-white rounded-lg border border-orange-200 shadow-lg text-sm'>
+                            <li onClick={logout} className='py-2 px-4 cursor-pointer hover:bg-orange-50 rounded transition-colors'>Logout</li>
                         </ul>
                     </div>
                 </div>   
             </div>
             :
-            <div className='flex items-center gap-2 sm:gap-5 '>
-                <p onClick={()=>navigate('/buy')} className='cursor-pointer'>Pricing</p>
-                <button onClick={()=>setShowLogin(true)} className='bg-zinc-800 text-white px-7 py-2 sm:px-10  text-sm rounded-full' >Login</button>
+            <div className='flex items-center gap-2 sm:gap-5'>
+                <p onClick={()=>navigate('/buy')} className='cursor-pointer text-gray-700 hover:text-orange-500 transition-colors text-sm font-medium'>Pricing</p>
+                <button onClick={()=>setShowLogin(true)} className='bg-gradient-to-r from-orange-400 to-teal-400 text-white px-6 py-2 sm:px-8 text-sm rounded-full hover:shadow-md hover:scale-105 transition-all duration-300 font-medium'>Login</button>
             </div>
         }
     </div> 
